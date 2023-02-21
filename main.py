@@ -29,32 +29,24 @@ if (difficultyLevel == 'e'):
 elif (difficultyLevel == 'h'):
     attempts = 5
 
-print(f"You have {attempts} attempts remaining to guess the number.")
-
-def guessTheNumber():
-    global attempts
+while (attempts > 0):
+    print(f"You have {attempts} attempts remaining to guess the number.")
     guess = int(input("Make a guess: "))
-
     if (guess < answer):
         print("Too low.")
-            
     elif (guess > answer):
         print("Too high.")
+    elif (guess == answer):
+        print(f"You got it! The answer was {guess}.")
+        break
+    attempts -= 1
 
-    while (attempts > 1):
-        if (guess == answer):
-            print(f"You got it! The answer was {answer}")
-            break
-        else:
-            print("Guess again.")
-            attempts -= 1
-            print(f"You have {attempts} attempts remaining to guess the number.")
-            guessTheNumber()
-
-guessTheNumber()
-
-if (attempts == 1):
+if (attempts == 0):
     print("You have run out of guesses, you lose!")
+
+
+
+
 
 
 
